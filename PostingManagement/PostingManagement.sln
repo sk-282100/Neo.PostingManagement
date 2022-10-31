@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostingManagement.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostingManagement.Persistence.IntegrationTests", "test\PostingManagement.Persistence.IntegrationTests\PostingManagement.Persistence.IntegrationTests.csproj", "{91FD98A7-7CE0-4B74-9EC0-A3D69C245D5D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{F7BB8C42-1B02-461F-AAF5-0DB1A7B34A49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.PostingManagement", "UI.PostingManagement\UI.PostingManagement.csproj", "{C124E64F-7399-4A54-8F39-23795A8DBECF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,10 @@ Global
 		{91FD98A7-7CE0-4B74-9EC0-A3D69C245D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91FD98A7-7CE0-4B74-9EC0-A3D69C245D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91FD98A7-7CE0-4B74-9EC0-A3D69C245D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C124E64F-7399-4A54-8F39-23795A8DBECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C124E64F-7399-4A54-8F39-23795A8DBECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C124E64F-7399-4A54-8F39-23795A8DBECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C124E64F-7399-4A54-8F39-23795A8DBECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +98,8 @@ Global
 		{10B54E8F-AA90-4555-AC31-8B81A4B775AD} = {F1ECEE20-01FA-447D-BAE2-6A0E832AAF78}
 		{1EE7C279-E374-4389-B82B-DC5F24F096F9} = {F1ECEE20-01FA-447D-BAE2-6A0E832AAF78}
 		{91FD98A7-7CE0-4B74-9EC0-A3D69C245D5D} = {F1ECEE20-01FA-447D-BAE2-6A0E832AAF78}
+		{F7BB8C42-1B02-461F-AAF5-0DB1A7B34A49} = {62E4AAC3-83B5-4B9C-B853-CDC431F6EA24}
+		{C124E64F-7399-4A54-8F39-23795A8DBECF} = {F7BB8C42-1B02-461F-AAF5-0DB1A7B34A49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56E9379C-1606-4DC4-92A6-10895DE270BF}
