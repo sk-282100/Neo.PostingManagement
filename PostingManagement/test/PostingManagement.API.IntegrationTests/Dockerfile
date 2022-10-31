@@ -1,0 +1,26 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1 AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+COPY ["test/PostingManagement.API.IntegrationTests/PostingManagement.API.IntegrationTests.csproj", "test/PostingManagement.API.IntegrationTests/"]
+COPY ["src/Infrastructure/PostingManagement.Persistence/PostingManagement.Persistence.csproj", "src/Infrastructure/PostingManagement.Persistence/"]
+COPY ["src/Core/PostingManagement.Application/PostingManagement.Application.csproj", "src/Core/PostingManagement.Application/"]
+COPY ["src/Core/PostingManagement.Domain/PostingManagement.Domain.csproj", "src/Core/PostingManagement.Domain/"]
+COPY ["src/API/PostingManagement.Api/PostingManagement.Api.csproj", "src/API/PostingManagement.Api/"]
+COPY ["src/Infrastructure/PostingManagement.Infrastructure/PostingManagement.Infrastructure.csproj", "src/Infrastructure/PostingManagement.Infrastructure/"]
+COPY ["src/Infrastructure/PostingManagement.Identity/PostingManagement.Identity.csproj", "src/Infrastructure/PostingManagement.Identity/"]
+RUN dotnet restore "test/PostingManagement.API.IntegrationTests/PostingManagement.API.IntegrationTests.csproj"
+COPY . .
+WORKDIR "/src/test/PostingManagement.API.IntegrationTests"
+RUN dotnet build "PostingManagement.API.IntegrationTests.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "PostingManagement.API.IntegrationTests.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "PostingManagement.API.IntegrationTests.dll"]
